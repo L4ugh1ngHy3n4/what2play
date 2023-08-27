@@ -11,6 +11,14 @@
         {% endblock %}
     </head>
     <body>
+            <header>
+                <h1>
+                    <a href="{{ path('homepage') }}">Home</a>
+                </h1>
+                <a href="{{ path('app_login') }}">Sign In</a>
+                <a href="{{ path('app_register') }}">Register</a>
+                <a href="{{ path('app_logout') }}">Log Out</a>
+            </header>
         {% block body %}{% endblock %}
     </body>
 </html>
