@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}what2play - {{ user }}{% endblock %}
+
+{% block body %}
+    <h2>
+        {{ user }}'s Game Lists:
+    </h2>
+
+    {% if lists|length > 0 %}
+        {% for list in lists %}
+            <h4>
+                {{ list.createdAt|format_datetime('medium', 'short') }}
+            </h4>
+            <small>
+                {% for name in list.users %}
+                    {{ name }}
+                {% endfor %}
+            </small>
+
+        {% endfor %}
+    {% else %}
+        <h3>
+            {{ user }} has no Game Lists!
+        </h3>
+    {% endif %}
+{% endblock %}
