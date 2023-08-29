@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -29,6 +30,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\Column]
+    private ?int $ownsLists = null;
+
+    #[ORM\PrePersist]
+    public function setOwnsListsValue()
+    {
+        $this->ownsLists = 0;
+    }
 
     public function getId(): ?int
     {
@@ -98,5 +108,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getOwnsLists(): ?int
+    {
+        return $this->ownsLists;
+    }
+
+    public function setOwnsLists(int $ownsLists): static
+    {
+        $this->ownsLists = $ownsLists;
+
+        return $this;
     }
 }
