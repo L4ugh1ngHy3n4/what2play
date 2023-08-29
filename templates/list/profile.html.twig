@@ -24,4 +24,9 @@
             {{ user }} has no Game Lists!
         </h3>
     {% endif %}
+    {% if display_form == true %}
+        <h2>Add a new Game List</h2>
+
+        {{ form(list_form) }}
+    {% endif %}
 {% endblock %}
