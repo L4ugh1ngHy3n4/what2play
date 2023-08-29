@@ -4,15 +4,32 @@
 
 {% block body %}
     <h1>List {{ list.slug }}'s contents.</h1>
-    <small>Owner:{{ list.owner }}</small>
-    <small>Users:
+    <small>Owner:{{ list.owner }}</small><br />
+    <small>Users:</small>
         <ul>
             {% for name in list.users %}
-            <li>{{ name }}</li>
+                <li><small>{{ name }}</small></li>
             {% endfor %}
         </ul>
-    </small>
+    <h4>Add Game to list:</h4>
+    {{ form(game_form) }}
 
-    ((List's Contents))
+    {% if games|length > 0 %}
+    <table>
+        <tr>
+            <td>Game</td>
+            <td>Score</td>
+        </tr>
+        {% for game in games %}
+        <tr>
+            <td>{{ game.name }}</td>
+            <td>{{ game.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>There are no games in the list</h2>
+    Be the first to suggest a game!
+    {% endif %}
 
 {% endblock %}

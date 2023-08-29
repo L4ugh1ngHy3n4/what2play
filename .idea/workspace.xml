@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Automatically generate sensible slugs for game lists">
+    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Added Form to add Games to lists">
+      <change afterPath="$PROJECT_DIR$/src/Form/GamesType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Games.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Games.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game_list/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game_list/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/profile.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +222,7 @@
       <workItem from="1693006760756" duration="1012000" />
       <workItem from="1693045621701" duration="7332000" />
       <workItem from="1693128563714" duration="6939000" />
-      <workItem from="1693303073322" duration="16076000" />
+      <workItem from="1693303073322" duration="20285000" />
     </task>
     <task id="LOCAL-00001" summary="Added the frontpage.">
       <option name="closed" value="true" />
@@ -275,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693340785399</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added page for lists">
+      <option name="closed" value="true" />
+      <created>1693341557880</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1693341557880</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +311,8 @@
     <MESSAGE value="Added user profiles and a form to create new game lists if logged in." />
     <MESSAGE value="Added lists are now stored in the db" />
     <MESSAGE value="Automatically generate sensible slugs for game lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Automatically generate sensible slugs for game lists" />
+    <MESSAGE value="Added page for lists" />
+    <MESSAGE value="Added Form to add Games to lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Form to add Games to lists" />
   </component>
 </project>

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\GamesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: GamesRepository::class)]
 class Games
@@ -14,9 +15,13 @@ class Games
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(options: ['default' => 0])]
+    #[Assert\NotBlank]
+    #[Assert\Range(min: 0, max: 10, notInRangeMessage: 'Please enter a Number between {{ min }} and {{ max }}')]
+    #[Assert\DivisibleBy(1, message: 'Please enter an integer')]
     private ?int $score = 0;
 
     #[ORM\ManyToOne(inversedBy: 'games')]
