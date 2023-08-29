@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Added a user-system.">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Added user profiles and a form to create new game lists if logged in.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/GameList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GameList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/profile.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +27,16 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Added user profiles and a form to create new game lists if logged in." />
+        <option name="rewordedMessage" value="Added user profiles and a form to create new game lists if logged in." />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="75c0fa750d4596a8e83354bc73d332bfb7e2450e" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -210,7 +220,7 @@
       <workItem from="1693006760756" duration="1012000" />
       <workItem from="1693045621701" duration="7332000" />
       <workItem from="1693128563714" duration="6939000" />
-      <workItem from="1693303073322" duration="9027000" />
+      <workItem from="1693303073322" duration="15052000" />
     </task>
     <task id="LOCAL-00001" summary="Added the frontpage.">
       <option name="closed" value="true" />
@@ -236,7 +246,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693307542206</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added user profiles and a form to create new game lists if logged in.">
+      <option name="closed" value="true" />
+      <created>1693324142477</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693324142477</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added user profiles and a form to create new game lists if logged in.">
+      <option name="closed" value="true" />
+      <created>1693324146860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693324146860</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +281,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the frontpage." />
-    <MESSAGE value="Added a user-system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a user-system." />
+    <MESSAGE value="Added database layout" />
+    <MESSAGE value="Added user profiles and a form to create new game lists if logged in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user profiles and a form to create new game lists if logged in." />
   </component>
 </project>

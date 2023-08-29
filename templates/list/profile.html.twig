@@ -9,9 +9,7 @@
 
     {% if lists|length > 0 %}
         {% for list in lists %}
-            <h4>
-                {{ list.createdAt|format_datetime('medium', 'short') }}
-            </h4>
+            <a href="/profile/{{ user }}/{{ list.slug }}">{{ list.slug }}</a>
             <small>
                 {% for name in list.users %}
                     {{ name }}
