@@ -9,7 +9,7 @@
 
     {% if lists|length > 0 %}
         {% for list in lists %}
-            <a href="/profile/{{ user }}/{{ list.slug }}">{{ list.slug }}</a>
+            <a href="/{{ list.slug }}">{{ list.slug }}</a>
             <small>
                 {% for name in list.users %}
                     {{ name }}

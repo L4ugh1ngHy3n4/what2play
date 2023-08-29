@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ list.slug }}{% endblock %}
+
+{% block body %}
+    <h1>List {{ list.slug }}'s contents.</h1>
+    <small>Owner:{{ list.owner }}</small>
+    <small>Users:
+        <ul>
+            {% for name in list.users %}
+            <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    </small>
+
+    ((List's Contents))
+
+{% endblock %}
