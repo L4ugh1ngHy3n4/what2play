@@ -31,8 +31,7 @@ class ListController extends AbstractController
         Request $request,
         User $user,
         GameListRepository $listRepository,
-    ): Response
-    {
+    ): Response {
         $profileName = $user->getUsername();
         $gameList = new GameList();
         $form = $this->createForm(GameListType::class, $gameList);
