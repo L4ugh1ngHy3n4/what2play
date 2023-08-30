@@ -20,9 +20,9 @@
     {% if display_member_form %}
         <h4>Add or remove friends from your list</h4>
         {{ form(member_form) }}
-        <h4>Add Game to list:</h4>
     {% endif %}
 
+    <h4>Add Game to list:</h4>
     {{ form(game_form) }}
 
     {% if games|length > 0 %}
@@ -38,6 +38,8 @@
         </tr>
         {% endfor %}
     </table>
+        <h4>Set your score for a game on the list</h4>
+        {{ form(score_form) }}
     {% else %}
     <h2>There are no games in the list</h2>
     Be the first to suggest a game!

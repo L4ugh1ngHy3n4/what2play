@@ -14,7 +14,6 @@ class GamesType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('score')
             ->add('submit', SubmitType::class, ['label' => 'Add Game'])
         ;
     }

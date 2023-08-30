@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\GamesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: GamesRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Games
 {
     #[ORM\Id]
@@ -19,14 +21,14 @@ class Games
     private ?string $name = null;
 
     #[ORM\Column(options: ['default' => 0])]
-    #[Assert\NotBlank]
-    #[Assert\Range(min: 0, max: 10, notInRangeMessage: 'Please enter a Number between {{ min }} and {{ max }}')]
-    #[Assert\DivisibleBy(1, message: 'Please enter an integer')]
-    private ?int $score = 0;
+    private ?int $score = null;
 
     #[ORM\ManyToOne(inversedBy: 'games')]
     #[ORM\JoinColumn(nullable: false)]
     private ?GameList $gameList = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $individualScores = [];
 
     public function getId(): ?int
     {
@@ -57,6 +59,19 @@ class Games
         return $this;
     }
 
+    #[ORM\PrePersist]
+    public function setScoreValue(): void
+    {
+        $this->score = 0;
+    }
+
+    #[ORM\PreUpdate]
+    public function updateScore(): void
+    {
+        // Sets score of a game to the sum of the individual scores each time a game gets updated
+        $this->setScore(array_sum($this->getIndividualScores()));
+    }
+
     public function getGameList(): ?GameList
     {
         return $this->gameList;
@@ -65,6 +80,18 @@ class Games
     public function setGameList(?GameList $gameList): static
     {
         $this->gameList = $gameList;
+
+        return $this;
+    }
+
+    public function getIndividualScores(): array
+    {
+        return $this->individualScores;
+    }
+
+    public function setIndividualScores(array $individualScores): static
+    {
+        $this->individualScores = $individualScores;
 
         return $this;
     }
