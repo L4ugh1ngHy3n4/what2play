@@ -17,9 +17,12 @@
                 <li><small>{{ name }}</small></li>
             {% endfor %}
         </ul>
-    <h4>Add or remove friends from your list</h4>
-    {{ form(member_form) }}
-    <h4>Add Game to list:</h4>
+    {% if display_member_form %}
+        <h4>Add or remove friends from your list</h4>
+        {{ form(member_form) }}
+        <h4>Add Game to list:</h4>
+    {% endif %}
+
     {{ form(game_form) }}
 
     {% if games|length > 0 %}

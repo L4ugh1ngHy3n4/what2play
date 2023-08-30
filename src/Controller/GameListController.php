@@ -7,6 +7,7 @@ use App\Entity\GameList;
 use App\Entity\User;
 use App\Form\GamesType;
 use App\Repository\GamesRepository;
+use App\Security\GameListVoter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Notifier\Notification\Notification;
 use Symfony\Component\Notifier\NotifierInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class GameListController extends AbstractController
 {
@@ -26,6 +28,7 @@ class GameListController extends AbstractController
     }
 
     #[Route('/game-list/{slug}', name: 'game_list')]
+    #[IsGranted('view', 'gameList')]
     public function showList(
         GameList $gameList,
         GamesRepository $gamesRepository,
@@ -89,6 +92,7 @@ class GameListController extends AbstractController
             'list' => $gameList,
             'games' => $gamesRepository->findBy(['gameList' => $gameList], ['score' => 'DESC']),
             'game_form' => $gameForm,
+            'display_member_form' => $this->isGranted(GameListVoter::EDIT, $gameList),
             'member_form' => $memberForm,
         ]);
     }
