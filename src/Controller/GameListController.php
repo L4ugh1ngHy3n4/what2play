@@ -68,7 +68,7 @@ class GameListController extends AbstractController
                 'slug' => $gameList->getSlug(),
             ]);
         } elseif ($memberForm->isSubmitted() && $memberForm->isValid()) {
-            $notifier->send(new Notification("There was a problem! Please enter a valid username", ['browser']));
+            $notifier->send(new Notification("There was a problem! The user you mentioned is not in our database", ['browser']));
         }
 
         // Add a new Game to the list
@@ -114,7 +114,7 @@ class GameListController extends AbstractController
     }
 
     private function validateUser(
-        string $user
+        string $userCandidate
     ): bool {
         /**
          * Check whether user is present in database
@@ -122,6 +122,7 @@ class GameListController extends AbstractController
          * returns true if user is found, otherwise returns false
          */
         $userRepository = $this->entityManager->getRepository(User::class);
-        return is_null($userRepository->findBy(['username' => $user]));
+        $user = $userRepository->findBy(['username' => $userCandidate]);
+        return (bool) $user;
     }
 }

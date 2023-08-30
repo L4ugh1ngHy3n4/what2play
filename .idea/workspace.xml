@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Added Form to add Games to lists">
+    <list default="true" id="6d005a1c-12ef-4e95-993b-f955c42578df" name="Changes" comment="Added ability to add and remove members to/from list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GameList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GameList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game_list/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game_list/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +219,7 @@
       <workItem from="1693128563714" duration="6939000" />
       <workItem from="1693303073322" duration="20387000" />
       <workItem from="1693393407247" duration="8794000" />
-      <workItem from="1693423863466" duration="1895000" />
+      <workItem from="1693423863466" duration="4134000" />
     </task>
     <task id="LOCAL-00001" summary="Added the frontpage.">
       <option name="closed" value="true" />
@@ -296,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693345727299</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added ability to add and remove members to/from list">
+      <option name="closed" value="true" />
+      <created>1693426033225</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693426033225</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +326,7 @@
     <MESSAGE value="Automatically generate sensible slugs for game lists" />
     <MESSAGE value="Added page for lists" />
     <MESSAGE value="Added Form to add Games to lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Form to add Games to lists" />
+    <MESSAGE value="Added ability to add and remove members to/from list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to add and remove members to/from list" />
   </component>
 </project>
