@@ -55,6 +55,11 @@ class ListController extends AbstractController
         return $this->render('list/profile.html.twig', [
             'user' => $profileName,
             'lists' => $listRepository->findBy(['owner' => $profileName], ['createdAt' => 'DESC']),
+            'member_lists' => $listRepository->createQueryBuilder('gl')
+                ->where('gl.users LIKE :user')
+                ->setParameter('user', '%:"'.$this->getUser()->getUsername().'";%')
+                ->getQuery()
+                ->getResult(),
             'display_form' => $displayForm,
             'list_form' => $form,
         ]);

@@ -3,11 +3,11 @@
 {% block title %}what2play - {{ user }}{% endblock %}
 
 {% block body %}
-    <h2>
-        {{ user }}'s Game Lists:
-    </h2>
 
     {% if lists|length > 0 %}
+        <h3>
+            {{ user }}'s owned game lists:
+        </h3>
         {% for list in lists %}
             <a href="/game-list/{{ list.slug }}">{{ list.slug }}</a>
             <small>
@@ -22,6 +22,20 @@
             {{ user }} has no Game Lists!
         </h3>
     {% endif %}
+    {% if member_lists|length > 0 %}
+        <h3>
+            {{ user }} is member in the following lists:
+        </h3>
+        {% for m_list in member_lists %}
+            <a href="/game-list/{{ m_list.slug }}">{{ m_list.slug }}</a>
+            <small>Owner: {{ m_list.owner }}</small>
+        {% endfor %}
+    {% else %}
+        <h3>
+            {{ user }} is not yet member of any list.
+        </h3>
+    {% endif %}
+
     {% if display_form == true %}
         <h2>Add a new Game List</h2>
 
