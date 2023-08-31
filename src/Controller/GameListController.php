@@ -161,7 +161,13 @@ class GameListController extends AbstractController
         $gameList->setUsers($users);
 
         // Delete given users scores
-        $games = $gamesRepository->findBy(['gameList' => $gameList->getId()]);
+        $games = $gamesRepository->createQueryBuilder('g')
+            ->where('g.individualScores LIKE :member')
+            ->setParameter('member', '%:"'.$member.'";i%')
+            ->getQuery()
+            ->getResult();
+
+        #findBy(['gameList' => $gameList->getId()]);
         foreach ($games as $game) {
             $scores = $game->getIndividualScores();
             unset($scores[$member]);
