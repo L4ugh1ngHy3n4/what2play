@@ -69,7 +69,7 @@ class GameListController extends AbstractController
                 $this->addMember($gameList, $data['user']);
             }
             else {
-                $this->removeMember($gameList, $data['user']);
+                $this->removeMember($gameList, $data['user'], $gamesRepository);
             }
             return $this->redirectToRoute('game_list', [
                 'slug' => $gameList->getSlug(),
@@ -153,10 +153,21 @@ class GameListController extends AbstractController
     private function removeMember(
         GameList $gameList,
         string $member,
+        GamesRepository $gamesRepository,
     ) :void {
+        // Delete given user from the gameList
         $users = $gameList->getUsers();
         $users = array_diff($users, array($member));
         $gameList->setUsers($users);
+
+        // Delete given users scores
+        $games = $gamesRepository->findBy(['gameList' => $gameList->getId()]);
+        foreach ($games as $game) {
+            $scores = $game->getIndividualScores();
+            unset($scores[$member]);
+            $game->setIndividualScores($scores);
+        }
+
         $this->entityManager->flush();
     }
 
