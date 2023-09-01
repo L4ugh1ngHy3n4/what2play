@@ -60,20 +60,23 @@ class GameListController extends AbstractController
             $memberForm->isSubmitted()
             && $memberForm->isValid()
             && $this->validateUser($memberForm->getData()['user'])
+            && $gameList->getOwner() != $memberForm->getData()['user']
         ) {
             $data = $memberForm->getData();
 
 
-
             if ($data['choice']) {
                 $this->addMember($gameList, $data['user']);
-            }
-            else {
+            } else {
                 $this->removeMember($gameList, $data['user'], $gamesRepository);
             }
             return $this->redirectToRoute('game_list', [
                 'slug' => $gameList->getSlug(),
             ]);
+        } elseif ($memberForm->isSubmitted()
+            && $memberForm->isValid()
+            && $this->validateUser($memberForm->getData()['user'])) {
+            $notifier->send(new Notification("You can't add yourself to the list", ['browser']));
         } elseif ($memberForm->isSubmitted() && $memberForm->isValid()) {
             $notifier->send(new Notification("There was a problem! The user you mentioned is not in our database", ['browser']));
         }
